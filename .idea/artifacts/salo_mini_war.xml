@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="salo-mini:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="salo-mini.war">
-      <element id="artifact" artifact-name="code_evaluate:war exploded" />
-    </root>
-  </artifact>
-</component>

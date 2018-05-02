@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.salo.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.salo.model.UserInfo">
+    <id column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="invitationKeyID" jdbcType="INTEGER" property="invitationkeyid" />
+    <result column="phoneNum" jdbcType="VARCHAR" property="phonenum" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="portraitUrl" jdbcType="VARCHAR" property="portraiturl" />
+    <result column="wechatID" jdbcType="VARCHAR" property="wechatid" />
+    <result column="userType" jdbcType="INTEGER" property="usertype" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="isAuthenticated" jdbcType="INTEGER" property="isauthenticated" />
+    <result column="rate" jdbcType="DOUBLE" property="rate" />
+    <result column="registerTime" jdbcType="TIMESTAMP" property="registertime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    userId, userName, invitationKeyID, phoneNum, pwd, description, portraitUrl, wechatID, 
+    userType, gender, isAuthenticated, rate, registerTime
+  </sql>
+  <select id="selectByExample" parameterType="com.salo.model.UserInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where userId = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_info
+    where userId = #{userid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.salo.model.UserInfoExample">
+    delete from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.salo.model.UserInfo">
+    insert into user_info (userId, userName, invitationKeyID, 
+      phoneNum, pwd, description, 
+      portraitUrl, wechatID, userType, 
+      gender, isAuthenticated, rate, 
+      registerTime)
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{invitationkeyid,jdbcType=INTEGER}, 
+      #{phonenum,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{portraiturl,jdbcType=VARCHAR}, #{wechatid,jdbcType=VARCHAR}, #{usertype,jdbcType=INTEGER}, 
+      #{gender,jdbcType=INTEGER}, #{isauthenticated,jdbcType=INTEGER}, #{rate,jdbcType=DOUBLE}, 
+      #{registertime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.salo.model.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="invitationkeyid != null">
+        invitationKeyID,
+      </if>
+      <if test="phonenum != null">
+        phoneNum,
+      </if>
+      <if test="pwd != null">
+        pwd,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="portraiturl != null">
+        portraitUrl,
+      </if>
+      <if test="wechatid != null">
+        wechatID,
+      </if>
+      <if test="usertype != null">
+        userType,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="isauthenticated != null">
+        isAuthenticated,
+      </if>
+      <if test="rate != null">
+        rate,
+      </if>
+      <if test="registertime != null">
+        registerTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="invitationkeyid != null">
+        #{invitationkeyid,jdbcType=INTEGER},
+      </if>
+      <if test="phonenum != null">
+        #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="portraiturl != null">
+        #{portraiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatid != null">
+        #{wechatid,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        #{usertype,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="isauthenticated != null">
+        #{isauthenticated,jdbcType=INTEGER},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DOUBLE},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.salo.model.UserInfoExample" resultType="java.lang.Long">
+    select count(*) from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_info
+    <set>
+      <if test="record.userid != null">
+        userId = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null">
+        userName = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invitationkeyid != null">
+        invitationKeyID = #{record.invitationkeyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.phonenum != null">
+        phoneNum = #{record.phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pwd != null">
+        pwd = #{record.pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.portraiturl != null">
+        portraitUrl = #{record.portraiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechatid != null">
+        wechatID = #{record.wechatid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertype != null">
+        userType = #{record.usertype,jdbcType=INTEGER},
+      </if>
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=INTEGER},
+      </if>
+      <if test="record.isauthenticated != null">
+        isAuthenticated = #{record.isauthenticated,jdbcType=INTEGER},
+      </if>
+      <if test="record.rate != null">
+        rate = #{record.rate,jdbcType=DOUBLE},
+      </if>
+      <if test="record.registertime != null">
+        registerTime = #{record.registertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_info
+    set userId = #{record.userid,jdbcType=INTEGER},
+      userName = #{record.username,jdbcType=VARCHAR},
+      invitationKeyID = #{record.invitationkeyid,jdbcType=INTEGER},
+      phoneNum = #{record.phonenum,jdbcType=VARCHAR},
+      pwd = #{record.pwd,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      portraitUrl = #{record.portraiturl,jdbcType=VARCHAR},
+      wechatID = #{record.wechatid,jdbcType=VARCHAR},
+      userType = #{record.usertype,jdbcType=INTEGER},
+      gender = #{record.gender,jdbcType=INTEGER},
+      isAuthenticated = #{record.isauthenticated,jdbcType=INTEGER},
+      rate = #{record.rate,jdbcType=DOUBLE},
+      registerTime = #{record.registertime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.salo.model.UserInfo">
+    update user_info
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="invitationkeyid != null">
+        invitationKeyID = #{invitationkeyid,jdbcType=INTEGER},
+      </if>
+      <if test="phonenum != null">
+        phoneNum = #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="portraiturl != null">
+        portraitUrl = #{portraiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatid != null">
+        wechatID = #{wechatid,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        userType = #{usertype,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="isauthenticated != null">
+        isAuthenticated = #{isauthenticated,jdbcType=INTEGER},
+      </if>
+      <if test="rate != null">
+        rate = #{rate,jdbcType=DOUBLE},
+      </if>
+      <if test="registertime != null">
+        registerTime = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.salo.model.UserInfo">
+    update user_info
+    set userName = #{username,jdbcType=VARCHAR},
+      invitationKeyID = #{invitationkeyid,jdbcType=INTEGER},
+      phoneNum = #{phonenum,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      portraitUrl = #{portraiturl,jdbcType=VARCHAR},
+      wechatID = #{wechatid,jdbcType=VARCHAR},
+      userType = #{usertype,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=INTEGER},
+      isAuthenticated = #{isauthenticated,jdbcType=INTEGER},
+      rate = #{rate,jdbcType=DOUBLE},
+      registerTime = #{registertime,jdbcType=TIMESTAMP}
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

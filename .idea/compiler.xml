@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="code_evaluate" />
+        <module name="salo-mini" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="code_evaluate" target="1.8" />
+      <module name="salo-mini" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
