@@ -18,6 +18,7 @@ import com.salo.service.IMetaService;
 import com.salo.service.ISiteService;
 import com.salo.utils.IPKit;
 import com.salo.utils.PatternKit;
+import com.salo.utils.SmsUtils;
 import com.salo.utils.TaleUtils;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -82,8 +83,7 @@ public class IndexController extends BaseController {
     public RestResponseBo phoneCode(@RequestParam(value = "phoneNum", defaultValue = "") String phoneNum) {
         String validCode = RandomStringUtils.random(4, "0123456789");
         try {
-            if (sendMsg(phoneNum, validCode, "2")) {
-
+            if (SmsUtils.sendMsg(phoneNum, validCode, "2")) {
                 return RestResponseBo.ok();
             } else {
                 return RestResponseBo.fail("发送短信失败");

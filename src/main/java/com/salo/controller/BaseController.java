@@ -1,16 +1,10 @@
 package com.salo.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.github.qcloudsms.SmsSingleSender;
-import com.github.qcloudsms.SmsSingleSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import com.salo.constant.QcloudSmsConst;
 import com.salo.model.Vo.UserVo;
 import com.salo.utils.TaleUtils;
 import com.salo.utils.MapCache;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 
 /**
  * Created by 13 on 2017/2/21.
@@ -59,12 +53,5 @@ public abstract class BaseController {
         return "comm/error_404";
     }
 
-    public boolean sendMsg(String phoneNumber, String validCode, String validPeriod) throws HTTPException, IOException {
-        String[] params = {validCode, validPeriod};
-        SmsSingleSender ssender = new SmsSingleSender(QcloudSmsConst.appid, QcloudSmsConst.appkey);
-        SmsSingleSenderResult result = ssender.sendWithParam("86", phoneNumber,
-                QcloudSmsConst.templateId, params, QcloudSmsConst.smsSign, "", "");
-        return result.result == 0;
-    }
 
 }
