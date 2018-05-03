@@ -233,6 +233,66 @@ public class InvitationKeyExample {
             addCriterion("invitationKey not between", value1, value2, "invitationkey");
             return (Criteria) this;
         }
+
+        public Criteria andIsusedIsNull() {
+            addCriterion("isUsed is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedIsNotNull() {
+            addCriterion("isUsed is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedEqualTo(Boolean value) {
+            addCriterion("isUsed =", value, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedNotEqualTo(Boolean value) {
+            addCriterion("isUsed <>", value, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedGreaterThan(Boolean value) {
+            addCriterion("isUsed >", value, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("isUsed >=", value, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedLessThan(Boolean value) {
+            addCriterion("isUsed <", value, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedLessThanOrEqualTo(Boolean value) {
+            addCriterion("isUsed <=", value, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedIn(List<Boolean> values) {
+            addCriterion("isUsed in", values, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedNotIn(List<Boolean> values) {
+            addCriterion("isUsed not in", values, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedBetween(Boolean value1, Boolean value2) {
+            addCriterion("isUsed between", value1, value2, "isused");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsusedNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("isUsed not between", value1, value2, "isused");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

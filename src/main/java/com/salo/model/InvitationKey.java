@@ -5,6 +5,8 @@ public class InvitationKey {
 
     private String invitationkey;
 
+    private Boolean isused;
+
     public Integer getId() {
         return id;
     }
@@ -19,5 +21,13 @@ public class InvitationKey {
 
     public void setInvitationkey(String invitationkey) {
         this.invitationkey = invitationkey == null ? null : invitationkey.trim();
+    }
+
+    public Boolean getIsused() {
+        return isused;
+    }
+
+    public void setIsused(Boolean isused) {
+        this.isused = isused;
     }
 }

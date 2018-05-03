@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.salo.model.InvitationKey">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="invitationKey" jdbcType="VARCHAR" property="invitationkey" />
+    <result column="isUsed" jdbcType="BIT" property="isused" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, invitationKey
+    id, invitationKey, isUsed
   </sql>
   <select id="selectByExample" parameterType="com.salo.model.InvitationKeyExample" resultMap="BaseResultMap">
     select
@@ -97,8 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.salo.model.InvitationKey">
-    insert into invitation_key (id, invitationKey)
-    values (#{id,jdbcType=INTEGER}, #{invitationkey,jdbcType=VARCHAR})
+    insert into invitation_key (id, invitationKey, isUsed
+      )
+    values (#{id,jdbcType=INTEGER}, #{invitationkey,jdbcType=VARCHAR}, #{isused,jdbcType=BIT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.salo.model.InvitationKey">
     insert into invitation_key
@@ -109,6 +112,9 @@
       <if test="invitationkey != null">
         invitationKey,
       </if>
+      <if test="isused != null">
+        isUsed,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -116,6 +122,9 @@
       </if>
       <if test="invitationkey != null">
         #{invitationkey,jdbcType=VARCHAR},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -134,6 +143,9 @@
       <if test="record.invitationkey != null">
         invitationKey = #{record.invitationkey,jdbcType=VARCHAR},
       </if>
+      <if test="record.isused != null">
+        isUsed = #{record.isused,jdbcType=BIT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -142,7 +154,8 @@
   <update id="updateByExample" parameterType="map">
     update invitation_key
     set id = #{record.id,jdbcType=INTEGER},
-      invitationKey = #{record.invitationkey,jdbcType=VARCHAR}
+      invitationKey = #{record.invitationkey,jdbcType=VARCHAR},
+      isUsed = #{record.isused,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -153,12 +166,16 @@
       <if test="invitationkey != null">
         invitationKey = #{invitationkey,jdbcType=VARCHAR},
       </if>
+      <if test="isused != null">
+        isUsed = #{isused,jdbcType=BIT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.salo.model.InvitationKey">
     update invitation_key
-    set invitationKey = #{invitationkey,jdbcType=VARCHAR}
+    set invitationKey = #{invitationkey,jdbcType=VARCHAR},
+      isUsed = #{isused,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

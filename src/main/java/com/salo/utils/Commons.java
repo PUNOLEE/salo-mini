@@ -3,7 +3,6 @@ package com.salo.utils;
 
 import com.github.pagehelper.PageInfo;
 import com.salo.constant.WebConst;
-import com.salo.model.Vo.ContentVo;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -140,16 +139,6 @@ public final class Commons {
         return avatarUrl + hash + ".png";
     }
 
-    /**
-     * 返回文章链接地址
-     *
-     * @param contents
-     * @return
-     */
-    public static String permalink(ContentVo contents) {
-        return permalink(contents.getCid(), contents.getSlug());
-    }
-
 
     /**
      * 获取随机数
@@ -268,17 +257,6 @@ public final class Commons {
         return "";
     }
 
-    /**
-     * 显示文章缩略图，顺序为：文章第一张图 -> 随机获取
-     *
-     * @return
-     */
-    public static String show_thumb(ContentVo contents) {
-        int cid = contents.getCid();
-        int size = cid % 20;
-        size = size == 0 ? 1 : size;
-        return "/user/img/rand/" + size + ".jpg";
-    }
 
 
     /**
