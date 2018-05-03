@@ -3,6 +3,7 @@ package com.salo.interceptor;
 import com.salo.dto.Types;
 import com.salo.constant.WebConst;
 import com.salo.model.Vo.UserVo;
+import com.salo.service.UserInfoService;
 import com.salo.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,25 +21,24 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 public class BaseInterceptor implements HandlerInterceptor {
+
     private static final Logger LOGGE = LoggerFactory.getLogger(BaseInterceptor.class);
     private static final String USER_AGENT = "user-agent";
 
-//    @Resource
-//    private IUserService userService;
-//
-//    @Resource
-//    private IOptionService optionService;
+    @Resource
+    private UserInfoService userInfoService;
+
 
 
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-//        String uri = request.getRequestURI();
-//
-//        LOGGE.info("UserAgent: {}", request.getHeader(USER_AGENT));
-//        LOGGE.info("用户访问地址: {}, 来路地址: {}", uri, IPKit.getIpAddrByRequest(request));
-//
-//
+        String uri = request.getRequestURI();
+
+        LOGGE.info("UserAgent: {}", request.getHeader(USER_AGENT));
+        LOGGE.info("用户访问地址: {}, 来路地址: {}", uri, IPKit.getIpAddrByRequest(request));
+
+
 //        //请求拦截处理
 //        UserVo user = TaleUtils.getLoginUser(request);
 //        if (null == user) {
