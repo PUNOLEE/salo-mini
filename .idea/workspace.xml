@@ -2,176 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce4cc7d0-4b5c-45f5-be88-9ab841c2bef7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salo/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salo/service/InvitationKeyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salo/service/UserInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ehcache.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/salo-mini.iml" beforeDir="false" afterPath="$PROJECT_DIR$/salo-mini.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/CoreApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salo/CoreApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salo/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/ArticleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/AttachController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/CategoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/CommentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/IndexController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/LinksController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/PageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/controller/admin/SettingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/AttachVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/CommentVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/ContentVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/LogVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/MetaVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/OptionVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/RelationshipVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dao/UserVoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dto/DataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/dto/MetaDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/interceptor/BaseInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salo/interceptor/BaseInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Bo/ArchiveBo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Bo/CommentBo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/InvitationKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salo/model/InvitationKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/InvitationKeyExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salo/model/InvitationKeyExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/AttachVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/AttachVoExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/CommentVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/CommentVoExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/ContentVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/ContentVoExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/LogVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/LogVoExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/MetaVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/MetaVoExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/OptionVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/OptionVoExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/RelationshipVoExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/model/Vo/RelationshipVoKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/IAttachService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/ICommentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/IContentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/ILogService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/IMetaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/IOptionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/IRelationshipService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/ISiteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/AttachServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/CommentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/ContentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/LogServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/MetaServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/OptionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/RelationshipServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/SiteServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/utils/AdminCommons.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/utils/Commons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salo/utils/Commons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salo/utils/TaleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salo/utils/TaleUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-default.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-default.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AttachVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CommentVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ContentVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/InvitationKeyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/InvitationKeyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/LogVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MetaVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/OptionVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RelationshipVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserVoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/css/style.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/attach.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/bg/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/bg/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/bg/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/bg/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/bg/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/images/small/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/js/article.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/js/base.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/js/install.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/js/jquery.app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/jquery-multi-select/img/switch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/jquery-multi-select/jquery.quicksearch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/jquery.steps/demo/css/jquery.steps.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/img/editor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/js/diff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/js/jquery.scrollto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/js/md.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/js/pagedown-extra.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/md/js/pagedown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/select2.dist.css/select2-bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/select2.dist.css/select2-spinner.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/select2.dist.css/select2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/select2.dist.css/select2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/select2.dist.css/select2x2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/tagsinput/jquery.tagsinput.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/tagsinput/jquery.tagsinput.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/plugins/toggles/toggles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/css/style.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/bg-ico.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/img/rand/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/article_edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/article_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/attach.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/comment_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/links.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/page_edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/page_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/setting.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/comm/error_404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/comm/error_500.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/comm/macros.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/comm/tale_comment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/archives.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/comments.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/links.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/old_comments.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/page-category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/themes/default/post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/salo/AsyncTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/salo/Pwdtest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/salo/TranscationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/salo/controller/IndexControllerTest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -226,8 +57,8 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/salo/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+            <state relative-caret-position="964">
+              <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -740,12 +571,20 @@
       <workItem from="1525256748657" duration="6341000" />
       <workItem from="1525263146520" duration="190000" />
       <workItem from="1525310455275" duration="342000" />
-      <workItem from="1525310822848" duration="15805000" />
+      <workItem from="1525310822848" duration="16109000" />
     </task>
+    <task id="LOCAL-00001" summary="finish register and phoneCode">
+      <created>1525337992714</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1525337992714</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25701000" />
+    <option name="totallyTimeSpent" value="26005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -796,6 +635,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="finish register and phoneCode" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish register and phoneCode" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1213,8 +1056,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/salo/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+        <state relative-caret-position="964">
+          <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
