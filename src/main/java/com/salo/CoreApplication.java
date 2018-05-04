@@ -1,6 +1,5 @@
 package com.salo;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -24,16 +23,10 @@ import javax.sql.DataSource;
 @EnableCaching
 public class CoreApplication {
 
-//    @Bean(initMethod = "init", destroyMethod = "close")
-//    @ConfigurationProperties(prefix = "spring.datasource")
-//    public DataSource dataSource() {
-//        return new DruidDataSource();
-//    }
-
     @Primary
     @Bean
     @ConfigurationProperties("spring.datasource.druid")
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         return DruidDataSourceBuilder.create().build();
     }
 
