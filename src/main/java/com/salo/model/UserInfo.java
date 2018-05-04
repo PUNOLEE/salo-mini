@@ -5,6 +5,8 @@ import java.util.Date;
 public class UserInfo {
     private Integer userid;
 
+    private String openid;
+
     private String username;
 
     private Integer invitationkeyid;
@@ -16,8 +18,6 @@ public class UserInfo {
     private String description;
 
     private String portraiturl;
-
-    private String wechatid;
 
     private Integer usertype;
 
@@ -35,6 +35,14 @@ public class UserInfo {
 
     public void setUserid(Integer userid) {
         this.userid = userid;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid == null ? null : openid.trim();
     }
 
     public String getUsername() {
@@ -83,14 +91,6 @@ public class UserInfo {
 
     public void setPortraiturl(String portraiturl) {
         this.portraiturl = portraiturl == null ? null : portraiturl.trim();
-    }
-
-    public String getWechatid() {
-        return wechatid;
-    }
-
-    public void setWechatid(String wechatid) {
-        this.wechatid = wechatid == null ? null : wechatid.trim();
     }
 
     public Integer getUsertype() {

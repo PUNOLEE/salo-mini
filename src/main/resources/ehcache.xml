@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>
-    <!--存储验证码-->
+    <!--存储验证码，2分钟过期-->
     <cache name="validCode" maxElementsInMemory="1000" timeToLiveSeconds="120"/>
 
-    <!--存储验证码发送次数-->
+    <!--存储验证码发送次数，10分钟未访问过期-->
     <cache name="sendTime" maxElementsInMemory="1000" timeToIdleSeconds="600"/>
+
+    <!--存储session，30分钟未访问过期-->
+    <cache name="session" maxElementsInMemory="1000" timeToIdleSeconds="1800"/>
 
     <!-- 此缓存最多可以存活timeToLiveSeconds秒，如果期间超过timeToIdleSeconds秒未访问，缓存失效 -->
     <!--<cache-->

@@ -29,8 +29,6 @@ public class BaseInterceptor implements HandlerInterceptor {
     private UserInfoService userInfoService;
 
 
-
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         String uri = request.getRequestURI();

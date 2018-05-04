@@ -3,13 +3,13 @@
 <mapper namespace="com.salo.dao.UserInfoMapper">
   <resultMap id="BaseResultMap" type="com.salo.model.UserInfo">
     <id column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="openId" jdbcType="VARCHAR" property="openid" />
     <result column="userName" jdbcType="VARCHAR" property="username" />
     <result column="invitationKeyID" jdbcType="INTEGER" property="invitationkeyid" />
     <result column="phoneNum" jdbcType="VARCHAR" property="phonenum" />
     <result column="pwd" jdbcType="VARCHAR" property="pwd" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="portraitUrl" jdbcType="VARCHAR" property="portraiturl" />
-    <result column="wechatID" jdbcType="VARCHAR" property="wechatid" />
     <result column="userType" jdbcType="INTEGER" property="usertype" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="isAuthenticated" jdbcType="INTEGER" property="isauthenticated" />
@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    userId, userName, invitationKeyID, phoneNum, pwd, description, portraitUrl, wechatID, 
+    userId, openId, userName, invitationKeyID, phoneNum, pwd, description, portraitUrl, 
     userType, gender, isAuthenticated, rate, registerTime
   </sql>
   <select id="selectByExample" parameterType="com.salo.model.UserInfoExample" resultMap="BaseResultMap">
@@ -109,14 +109,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.salo.model.UserInfo">
-    insert into user_info (userId, userName, invitationKeyID, 
-      phoneNum, pwd, description, 
-      portraitUrl, wechatID, userType, 
+    insert into user_info (userId, openId, userName, 
+      invitationKeyID, phoneNum, pwd, 
+      description, portraitUrl, userType, 
       gender, isAuthenticated, rate, 
       registerTime)
-    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{invitationkeyid,jdbcType=INTEGER}, 
-      #{phonenum,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{portraiturl,jdbcType=VARCHAR}, #{wechatid,jdbcType=VARCHAR}, #{usertype,jdbcType=INTEGER}, 
+    values (#{userid,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{invitationkeyid,jdbcType=INTEGER}, #{phonenum,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{portraiturl,jdbcType=VARCHAR}, #{usertype,jdbcType=INTEGER}, 
       #{gender,jdbcType=INTEGER}, #{isauthenticated,jdbcType=INTEGER}, #{rate,jdbcType=DOUBLE}, 
       #{registertime,jdbcType=TIMESTAMP})
   </insert>
@@ -125,6 +125,9 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userid != null">
         userId,
+      </if>
+      <if test="openid != null">
+        openId,
       </if>
       <if test="username != null">
         userName,
@@ -143,9 +146,6 @@
       </if>
       <if test="portraiturl != null">
         portraitUrl,
-      </if>
-      <if test="wechatid != null">
-        wechatID,
       </if>
       <if test="usertype != null">
         userType,
@@ -167,6 +167,9 @@
       <if test="userid != null">
         #{userid,jdbcType=INTEGER},
       </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
       </if>
@@ -184,9 +187,6 @@
       </if>
       <if test="portraiturl != null">
         #{portraiturl,jdbcType=VARCHAR},
-      </if>
-      <if test="wechatid != null">
-        #{wechatid,jdbcType=VARCHAR},
       </if>
       <if test="usertype != null">
         #{usertype,jdbcType=INTEGER},
@@ -217,6 +217,9 @@
       <if test="record.userid != null">
         userId = #{record.userid,jdbcType=INTEGER},
       </if>
+      <if test="record.openid != null">
+        openId = #{record.openid,jdbcType=VARCHAR},
+      </if>
       <if test="record.username != null">
         userName = #{record.username,jdbcType=VARCHAR},
       </if>
@@ -234,9 +237,6 @@
       </if>
       <if test="record.portraiturl != null">
         portraitUrl = #{record.portraiturl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.wechatid != null">
-        wechatID = #{record.wechatid,jdbcType=VARCHAR},
       </if>
       <if test="record.usertype != null">
         userType = #{record.usertype,jdbcType=INTEGER},
@@ -261,13 +261,13 @@
   <update id="updateByExample" parameterType="map">
     update user_info
     set userId = #{record.userid,jdbcType=INTEGER},
+      openId = #{record.openid,jdbcType=VARCHAR},
       userName = #{record.username,jdbcType=VARCHAR},
       invitationKeyID = #{record.invitationkeyid,jdbcType=INTEGER},
       phoneNum = #{record.phonenum,jdbcType=VARCHAR},
       pwd = #{record.pwd,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       portraitUrl = #{record.portraiturl,jdbcType=VARCHAR},
-      wechatID = #{record.wechatid,jdbcType=VARCHAR},
       userType = #{record.usertype,jdbcType=INTEGER},
       gender = #{record.gender,jdbcType=INTEGER},
       isAuthenticated = #{record.isauthenticated,jdbcType=INTEGER},
@@ -280,6 +280,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.salo.model.UserInfo">
     update user_info
     <set>
+      <if test="openid != null">
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
       <if test="username != null">
         userName = #{username,jdbcType=VARCHAR},
       </if>
@@ -297,9 +300,6 @@
       </if>
       <if test="portraiturl != null">
         portraitUrl = #{portraiturl,jdbcType=VARCHAR},
-      </if>
-      <if test="wechatid != null">
-        wechatID = #{wechatid,jdbcType=VARCHAR},
       </if>
       <if test="usertype != null">
         userType = #{usertype,jdbcType=INTEGER},
@@ -321,13 +321,13 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.salo.model.UserInfo">
     update user_info
-    set userName = #{username,jdbcType=VARCHAR},
+    set openId = #{openid,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
       invitationKeyID = #{invitationkeyid,jdbcType=INTEGER},
       phoneNum = #{phonenum,jdbcType=VARCHAR},
       pwd = #{pwd,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       portraitUrl = #{portraiturl,jdbcType=VARCHAR},
-      wechatID = #{wechatid,jdbcType=VARCHAR},
       userType = #{usertype,jdbcType=INTEGER},
       gender = #{gender,jdbcType=INTEGER},
       isAuthenticated = #{isauthenticated,jdbcType=INTEGER},

@@ -165,6 +165,76 @@ public class UserInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andOpenidIsNull() {
+            addCriterion("openId is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidIsNotNull() {
+            addCriterion("openId is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidEqualTo(String value) {
+            addCriterion("openId =", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidNotEqualTo(String value) {
+            addCriterion("openId <>", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidGreaterThan(String value) {
+            addCriterion("openId >", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidGreaterThanOrEqualTo(String value) {
+            addCriterion("openId >=", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidLessThan(String value) {
+            addCriterion("openId <", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidLessThanOrEqualTo(String value) {
+            addCriterion("openId <=", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidLike(String value) {
+            addCriterion("openId like", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidNotLike(String value) {
+            addCriterion("openId not like", value, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidIn(List<String> values) {
+            addCriterion("openId in", values, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidNotIn(List<String> values) {
+            addCriterion("openId not in", values, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidBetween(String value1, String value2) {
+            addCriterion("openId between", value1, value2, "openid");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenidNotBetween(String value1, String value2) {
+            addCriterion("openId not between", value1, value2, "openid");
+            return (Criteria) this;
+        }
+
         public Criteria andUsernameIsNull() {
             addCriterion("userName is null");
             return (Criteria) this;
@@ -572,76 +642,6 @@ public class UserInfoExample {
 
         public Criteria andPortraiturlNotBetween(String value1, String value2) {
             addCriterion("portraitUrl not between", value1, value2, "portraiturl");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidIsNull() {
-            addCriterion("wechatID is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidIsNotNull() {
-            addCriterion("wechatID is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidEqualTo(String value) {
-            addCriterion("wechatID =", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidNotEqualTo(String value) {
-            addCriterion("wechatID <>", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidGreaterThan(String value) {
-            addCriterion("wechatID >", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidGreaterThanOrEqualTo(String value) {
-            addCriterion("wechatID >=", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidLessThan(String value) {
-            addCriterion("wechatID <", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidLessThanOrEqualTo(String value) {
-            addCriterion("wechatID <=", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidLike(String value) {
-            addCriterion("wechatID like", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidNotLike(String value) {
-            addCriterion("wechatID not like", value, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidIn(List<String> values) {
-            addCriterion("wechatID in", values, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidNotIn(List<String> values) {
-            addCriterion("wechatID not in", values, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidBetween(String value1, String value2) {
-            addCriterion("wechatID between", value1, value2, "wechatid");
-            return (Criteria) this;
-        }
-
-        public Criteria andWechatidNotBetween(String value1, String value2) {
-            addCriterion("wechatID not between", value1, value2, "wechatid");
             return (Criteria) this;
         }
 

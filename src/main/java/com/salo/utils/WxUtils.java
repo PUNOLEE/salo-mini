@@ -1,5 +1,8 @@
 package com.salo.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.salo.model.Bo.SessionInfo;
+
 public class WxUtils {
 
     private static final String AppID = "wxbbe54ec756027185";
@@ -8,12 +11,17 @@ public class WxUtils {
 
     private static final String GET_SESSION_KEY_URL = "https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code";
 
-    public static String login(String code) throws Exception {
+    public static SessionInfo getSessionInfo(String code) throws Exception {
         String url = String.format(GET_SESSION_KEY_URL, AppID, AppSecret, code);
         String responseStr = HttpUtils.sendGet(url);
-//        Map responseMap = JsonUtil.parseJSON2Map(responseStr);
-//        String openId = responseMap.get("openid").toString();
-        return "";
+        SessionInfo sessionInfo = JSON.parseObject(responseStr, SessionInfo.class);
+        if (sessionInfo.openid != null && sessionInfo.session_key != null) {
+            sessionInfo.encrypt_session = TaleUtils.MD5encode(sessionInfo.openid + sessionInfo.session_key);
+            return sessionInfo;
+        } else {
+            sessionInfo.openid = null;
+            return sessionInfo;
+        }
     }
 
 }

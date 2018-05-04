@@ -2,10 +2,12 @@ package com.salo.controller;
 
 import com.github.qcloudsms.httpclient.HTTPException;
 import com.salo.model.Bo.RestResponseBo;
+import com.salo.model.Bo.SessionInfo;
 import com.salo.model.UserInfo;
 import com.salo.service.InvitationKeyService;
 import com.salo.service.UserInfoService;
 import com.salo.utils.SmsUtils;
+import com.salo.utils.WxUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -42,7 +44,6 @@ public class UserController extends BaseController {
                                    @RequestParam(value = "IDKEY", defaultValue = "") String idKey,
                                    @RequestParam(value = "phoneNum", defaultValue = "") String phoneNum,
                                    @RequestParam(value = "phoneCode", defaultValue = "") String phoneCode,
-                                   @RequestParam(value = "wechatid", defaultValue = "") String wechatid,
                                    @RequestParam(value = "password", defaultValue = "") String password,
                                    @RequestParam(value = "userType", defaultValue = "") int userType) {
         //TODO 验证邀请码的正确性
@@ -57,7 +58,6 @@ public class UserController extends BaseController {
             userInfo.setUsername(accountName);
             userInfo.setInvitationkeyid(invitationId);
             userInfo.setPhonenum(phoneNum);
-            userInfo.setWechatid(wechatid);
             userInfo.setPwd(password);
             userInfo.setUsertype(userType);
             userInfo.setRegistertime(new Date());
@@ -70,7 +70,7 @@ public class UserController extends BaseController {
 
     @GetMapping(value = "/code")
     @ResponseBody
-    public RestResponseBo phoneCode(@RequestParam(value = "phoneNum", defaultValue = "") String phoneNum) {
+    public RestResponseBo code(@RequestParam(value = "phoneNum", defaultValue = "") String phoneNum) {
         String validCode = RandomStringUtils.random(4, "0123456789");
         try {
             Cache sendTimeCache = cacheManager.getCache("sendTime");
@@ -95,4 +95,28 @@ public class UserController extends BaseController {
             return RestResponseBo.fail("发送短信IO请求失败");
         }
     }
+
+    @GetMapping(value = "/login")
+    @ResponseBody
+    public RestResponseBo login(@RequestParam(value = "code", defaultValue = "") String code) {
+        SessionInfo sessionInfo = null;
+        try {
+            sessionInfo = WxUtils.getSessionInfo(code);
+        } catch (Exception e) {
+            LOGGER.error("获取SessionInfo失败", e);
+            return RestResponseBo.fail("调用微信登录凭证校验接口失败");
+        }
+        if (sessionInfo != null && sessionInfo.openid != null) {
+            UserInfo userInfo = userInfoService.findUserByOpenId(sessionInfo.openid);
+            if (userInfo != null) {
+                Cache sessionCache = cacheManager.getCache("session");
+                sessionCache.putIfAbsent(sessionInfo.encrypt_session, sessionInfo);
+                return RestResponseBo.ok("登录成功");
+            } else {
+                return RestResponseBo.fail("用户未注册");
+            }
+        }
+        return RestResponseBo.fail("调用微信登录凭证校验接口失败");
+    }
+
 }
