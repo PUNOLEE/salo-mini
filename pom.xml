@@ -7,13 +7,6 @@
     <artifactId>salo-mini</artifactId>
     <!-- now -->
     <version>3.3.0-SNAPSHOT</version>
-    <!-- version的时间节点-->
-    <!-- Tale -->
-    <!--<version>0.0.1-SNAPSHOT</version>-->
-    <!-- springboot -->
-    <!--<version>1.0.1-SNAPSHOT</version>-->
-    <!-- docker -->
-    <!--<version>2.0.1-SNAPSHOT</version>-->
     <packaging>jar</packaging>
 
     <name>salo-mini</name>
@@ -65,6 +58,10 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -154,12 +151,6 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.1.0</version>
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>druid</artifactId>-->
-            <!--<version>1.0.18</version>-->
-        <!--</dependency>-->
 
         <!--https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core-->
         <dependency>

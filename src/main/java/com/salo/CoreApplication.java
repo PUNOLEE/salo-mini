@@ -1,8 +1,6 @@
 package com.salo;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
-import com.alibaba.fastjson.JSON;
-import com.salo.model.Bo.SessionInfo;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -19,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
+import java.util.Map;
 
 @MapperScan("com.salo.dao")
 @SpringBootApplication
@@ -51,5 +50,6 @@ public class CoreApplication {
     public static void main(String[] args) {
         SpringApplication.run(CoreApplication.class, args);
     }
+
 
 }

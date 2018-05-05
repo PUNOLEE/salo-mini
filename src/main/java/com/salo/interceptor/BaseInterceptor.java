@@ -2,7 +2,9 @@ package com.salo.interceptor;
 
 import com.salo.dto.Types;
 import com.salo.constant.WebConst;
+import com.salo.model.UserInfo;
 import com.salo.model.Vo.UserVo;
+import com.salo.service.RedisService;
 import com.salo.service.UserInfoService;
 import com.salo.utils.*;
 import org.slf4j.Logger;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  * 自定义拦截器
@@ -28,6 +31,9 @@ public class BaseInterceptor implements HandlerInterceptor {
     @Resource
     private UserInfoService userInfoService;
 
+    @Resource
+    private RedisService redisService;
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
@@ -36,6 +42,21 @@ public class BaseInterceptor implements HandlerInterceptor {
         LOGGE.info("UserAgent: {}", request.getHeader(USER_AGENT));
         LOGGE.info("用户访问地址: {}, 来路地址: {}", uri, IPKit.getIpAddrByRequest(request));
 
+        if (uri.startsWith("/register") || uri.startsWith("/code") || uri.startsWith("/login") || uri.startsWith("/expire")) {
+            return true;
+        }
+
+        String session = request.getParameter("session");
+        String openId = redisService.getSession(session);
+
+        UserInfo userInfo = openId == null ? null : userInfoService.findUserByOpenId(openId);
+
+        if (openId != null && userInfo != null) {
+            request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, userInfo);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/expire");
+            return false;
+        }
 
 //        //请求拦截处理
 //        UserVo user = TaleUtils.getLoginUser(request);
