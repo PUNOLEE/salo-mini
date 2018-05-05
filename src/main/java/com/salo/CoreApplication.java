@@ -22,7 +22,6 @@ import java.util.Map;
 @MapperScan("com.salo.dao")
 @SpringBootApplication
 @EnableTransactionManagement
-@EnableCaching
 public class CoreApplication {
 
     @Primary
