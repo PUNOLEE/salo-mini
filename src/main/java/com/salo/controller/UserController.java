@@ -109,9 +109,11 @@ public class UserController extends BaseController {
             UserInfo userInfo = userInfoService.findUserByOpenId(sessionInfo.openid);
             redisService.putSession(sessionInfo.encrypt_session, sessionInfo.openid);
             if (userInfo != null) {
-                return RestResponseBo.ok(sessionInfo.encrypt_session);
+                //用户已注册
+                return RestResponseBo.ok(sessionInfo.encrypt_session, 1);
             } else {
-                return RestResponseBo.fail("用户未注册");
+                //用户未注册
+                return RestResponseBo.ok(sessionInfo.encrypt_session, 2);
             }
         }
         return RestResponseBo.fail("调用微信登录凭证校验接口失败");

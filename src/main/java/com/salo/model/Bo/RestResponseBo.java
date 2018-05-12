@@ -123,6 +123,7 @@ public class RestResponseBo<T> {
         return new RestResponseBo(true, payload, code);
     }
 
+
     public static RestResponseBo fail() {
         return new RestResponseBo(false);
     }
