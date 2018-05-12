@@ -43,7 +43,6 @@ public class UserController extends BaseController {
                                    @RequestParam(value = "IDKEY", defaultValue = "") String idKey,
                                    @RequestParam(value = "phoneNum", defaultValue = "") String phoneNum,
                                    @RequestParam(value = "phoneCode", defaultValue = "") String phoneCode,
-                                   @RequestParam(value = "password", defaultValue = "") String password,
                                    @RequestParam(value = "userType", defaultValue = "") int userType,
                                    @RequestParam(value = "session", defaultValue = "") String session) {
 
@@ -61,7 +60,6 @@ public class UserController extends BaseController {
             userInfo.setUsername(accountName);
             userInfo.setInvitationkeyid(invitationId);
             userInfo.setPhonenum(phoneNum);
-            userInfo.setPwd(password);
             userInfo.setUsertype(userType);
             userInfo.setRegistertime(new Date());
             userInfoService.insertUser(userInfo);
@@ -109,8 +107,8 @@ public class UserController extends BaseController {
         }
         if (sessionInfo != null && sessionInfo.openid != null) {
             UserInfo userInfo = userInfoService.findUserByOpenId(sessionInfo.openid);
+            redisService.putSession(sessionInfo.encrypt_session, sessionInfo.openid);
             if (userInfo != null) {
-                redisService.putSession(sessionInfo.encrypt_session, sessionInfo.openid);
                 return RestResponseBo.ok(sessionInfo.encrypt_session);
             } else {
                 return RestResponseBo.fail("用户未注册");
