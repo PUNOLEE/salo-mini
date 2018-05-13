@@ -45,11 +45,39 @@ public class CoreApplication {
         return new DataSourceTransactionManager(dataSource());
     }
 
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(CoreApplication.class, args);
     }
 
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode now = head;
+        int count = 1;
+        while (now.next != null) {
+            now = now.next;
+            count++;
+        }
+        if (n == count) return head.next;
 
+        int i = 1;
+        now = head;
+        while (true) {
+            if (i + n == count ) {
+                now.next = now.next == null ? null : now.next.next;
+                break;
+            }
+            now = now.next;
+            i++;
+        }
+        return head;
+    }
 
 }

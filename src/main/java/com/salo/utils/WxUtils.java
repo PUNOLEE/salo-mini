@@ -3,6 +3,8 @@ package com.salo.utils;
 import com.alibaba.fastjson.JSON;
 import com.salo.model.Bo.SessionInfo;
 
+import java.util.Date;
+
 public class WxUtils {
 
     private static final String AppID = "wxbbe54ec756027185";
@@ -16,7 +18,8 @@ public class WxUtils {
         String responseStr = HttpUtils.sendGet(url);
         SessionInfo sessionInfo = JSON.parseObject(responseStr, SessionInfo.class);
         if (sessionInfo.openid != null && sessionInfo.session_key != null) {
-            sessionInfo.encrypt_session = TaleUtils.MD5encode(sessionInfo.openid + sessionInfo.session_key);
+            Date now = new Date();
+            sessionInfo.encrypt_session = TaleUtils.MD5encode(sessionInfo.openid + sessionInfo.session_key + now.getTime());
             return sessionInfo;
         } else {
             sessionInfo.openid = null;

@@ -13,6 +13,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Date;
 
@@ -36,6 +38,30 @@ public class UserController extends BaseController {
 
     @Resource
     private RedisService redisService;
+
+    @GetMapping(value = "/login")
+    @ResponseBody
+    public RestResponseBo login(@RequestParam(value = "code", defaultValue = "") String code) {
+        SessionInfo sessionInfo = null;
+        try {
+            sessionInfo = WxUtils.getSessionInfo(code);
+        } catch (Exception e) {
+            LOGGER.error("获取SessionInfo失败", e);
+            return RestResponseBo.fail("调用微信登录凭证校验接口失败");
+        }
+        if (sessionInfo != null && sessionInfo.openid != null) {
+            UserInfo userInfo = userInfoService.findUserByOpenId(sessionInfo.openid);
+            redisService.putSession(sessionInfo.encrypt_session, sessionInfo.openid);
+            if (userInfo != null) {
+                //用户已注册
+                return RestResponseBo.ok(sessionInfo.encrypt_session, 1);
+            } else {
+                //用户未注册
+                return RestResponseBo.ok(sessionInfo.encrypt_session, 2);
+            }
+        }
+        return RestResponseBo.fail("调用微信登录凭证校验接口失败");
+    }
 
     @PostMapping(value = "/register")
     @ResponseBody
@@ -95,35 +121,16 @@ public class UserController extends BaseController {
         }
     }
 
-    @GetMapping(value = "/login")
-    @ResponseBody
-    public RestResponseBo login(@RequestParam(value = "code", defaultValue = "") String code) {
-        SessionInfo sessionInfo = null;
-        try {
-            sessionInfo = WxUtils.getSessionInfo(code);
-        } catch (Exception e) {
-            LOGGER.error("获取SessionInfo失败", e);
-            return RestResponseBo.fail("调用微信登录凭证校验接口失败");
-        }
-        if (sessionInfo != null && sessionInfo.openid != null) {
-            UserInfo userInfo = userInfoService.findUserByOpenId(sessionInfo.openid);
-            redisService.putSession(sessionInfo.encrypt_session, sessionInfo.openid);
-            if (userInfo != null) {
-                //用户已注册
-                return RestResponseBo.ok(sessionInfo.encrypt_session, 1);
-            } else {
-                //用户未注册
-                return RestResponseBo.ok(sessionInfo.encrypt_session, 2);
-            }
-        }
-        return RestResponseBo.fail("调用微信登录凭证校验接口失败");
-    }
-
-
     @GetMapping(value = "/expire")
     @ResponseBody
     public RestResponseBo sessionExpire() {
         return RestResponseBo.fail("未登录或session过期");
+    }
+
+    @GetMapping(value = "/unregister")
+    @ResponseBody
+    public RestResponseBo unregister() {
+        return RestResponseBo.fail("请先注册");
     }
 
 }

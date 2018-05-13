@@ -1,10 +1,13 @@
 package com.salo.controller;
 
+import com.salo.constant.WebConst;
+import com.salo.model.UserInfo;
 import com.salo.model.Vo.UserVo;
 import com.salo.utils.TaleUtils;
 import com.salo.utils.MapCache;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by 13 on 2017/2/21.
@@ -13,40 +16,22 @@ public abstract class BaseController {
 
     public static String THEME = "themes/default";
 
-    protected MapCache cache = MapCache.single();
-
-    /**
-     * 主页的页面主题
-     *
-     * @param viewName
-     * @return
-     */
-    public String render(String viewName) {
-        return THEME + "/" + viewName;
-    }
-
-    public BaseController title(HttpServletRequest request, String title) {
-        request.setAttribute("title", title);
-        return this;
-    }
-
-    public BaseController keywords(HttpServletRequest request, String keywords) {
-        request.setAttribute("keywords", keywords);
-        return this;
-    }
-
     /**
      * 获取请求绑定的登录对象
      *
      * @param request
      * @return
      */
-    public UserVo user(HttpServletRequest request) {
-        return TaleUtils.getLoginUser(request);
+    public UserInfo getUserInfo(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (null == session) {
+            return null;
+        }
+        return (UserInfo) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
     }
 
-    public Integer getUid(HttpServletRequest request) {
-        return this.user(request).getUid();
+    public int getUserId(HttpServletRequest request) {
+        return this.getUserInfo(request).getUserid();
     }
 
     public String render_404() {

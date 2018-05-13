@@ -7,6 +7,7 @@ import com.salo.model.Vo.UserVo;
 import com.salo.service.RedisService;
 import com.salo.service.UserInfoService;
 import com.salo.utils.*;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -42,44 +43,35 @@ public class BaseInterceptor implements HandlerInterceptor {
         LOGGE.info("UserAgent: {}", request.getHeader(USER_AGENT));
         LOGGE.info("用户访问地址: {}, 来路地址: {}", uri, IPKit.getIpAddrByRequest(request));
 
-        if (uri.startsWith("/register") || uri.startsWith("/code") || uri.startsWith("/login") || uri.startsWith("/expire")) {
+        if (uri.startsWith("/login") || uri.startsWith("/expire")) {
             return true;
         }
 
         String session = request.getParameter("session");
         String openId = redisService.getSession(session);
 
-        UserInfo userInfo = openId == null ? null : userInfoService.findUserByOpenId(openId);
-
-        if (openId != null && userInfo != null) {
-            request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, userInfo);
-        } else {
+        if (StringUtils.isEmpty(openId)) { //未登录
             response.sendRedirect(request.getContextPath() + "/expire");
             return false;
+        } else { //已登录
+            UserInfo userInfo = userInfoService.findUserByOpenId(openId);
+            if (userInfo == null) { //用户未注册只允许访问注册接口
+                if (uri.startsWith("/register")) {
+                    return true;
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/unregister");
+                    return false;
+                }
+            } else { //已注册用户在session中存储信息
+                request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, userInfo);
+                return true;
+            }
         }
 
-//        //请求拦截处理
-//        UserVo user = TaleUtils.getLoginUser(request);
-//        if (null == user) {
-//            Integer uid = TaleUtils.getCookieUid(request);
-//            if (null != uid) {
-//                //这里还是有安全隐患,cookie是可以伪造的
-//                user = userService.queryUserById(uid);
-//                request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
-//            }
-//        }
-//        if (uri.startsWith("/admin") && !uri.startsWith("/admin/login") && null == user) {
-//            response.sendRedirect(request.getContextPath() + "/admin/login");
-//            return false;
-//        }
-//        //设置get请求的token
-//        if (request.getMethod().equals("GET")) {
-//            String csrf_token = UUID.UU64();
-//            // 默认存储30分钟
-//            cache.hset(Types.CSRF_TOKEN.getType(), csrf_token, uri, 30 * 60);
-//            request.setAttribute("_csrf_token", csrf_token);
-//        }
-        return true;
+//        //测试
+//        UserInfo userInfo = userInfoService.findUserById(502);
+//        request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, userInfo);
+//        return true;
     }
 
     @Override

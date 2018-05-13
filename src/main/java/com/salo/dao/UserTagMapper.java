@@ -2,7 +2,9 @@ package com.salo.dao;
 
 import com.salo.model.UserTag;
 import com.salo.model.UserTagExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserTagMapper {
@@ -15,6 +17,8 @@ public interface UserTagMapper {
     int insert(UserTag record);
 
     int insertSelective(UserTag record);
+
+    int batchInsert(List<UserTag> recordList);
 
     List<UserTag> selectByExample(UserTagExample example);
 

@@ -27,6 +27,10 @@ public class UserInfoService {
         return userInfo.getUserid();
     }
 
+    public UserInfo findUserById(int userId) {
+        return userInfoDao.selectByPrimaryKey(userId);
+    }
+
     public UserInfo findUserByOpenId(String openId) {
         UserInfoExample example = new UserInfoExample();
         UserInfoExample.Criteria criteria = example.createCriteria();

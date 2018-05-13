@@ -15,7 +15,7 @@ public class UserTag {
         this.id = id;
     }
 
-    public Integer getUserid() {
+    public Integer getUserId() {
         return userid;
     }
 
